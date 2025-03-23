@@ -18,6 +18,8 @@ import androidx.media3.common.util.UnstableApi
 import com.example.tarea1.ui.theme.Tarea1Theme
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
 
 class MainActivity : ComponentActivity() {
     @OptIn(UnstableApi::class)
@@ -31,8 +33,12 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-                    Imagenes()
+                    Column {
+                        Imagenes(painterResource(R.drawable._111),"Gato 1")
+                        Imagenes(painterResource(R.drawable._2222),"Gato 2")
+                        Imagenes(painterResource(R.drawable._333),"Gato 3")
 
+                    }
                 }
             }
         }
@@ -44,11 +50,8 @@ class MainActivity : ComponentActivity() {
         Log.i("Prueba explorando", "Mensaje 2: $Explorando")
         Log.i("Prueba Nombre", "Mensaje 3 : $Nombre")
 
-
-
     }
 }
-
 
 @OptIn(UnstableApi::class)
 @Composable
@@ -63,16 +66,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @OptIn(UnstableApi::class)
 @Composable
-fun Imagenes()
+fun Imagenes(imagen: androidx.compose.ui.graphics.painter.Painter, Nombre: String)
 {
-    Image(painter = painterResource(id = R.drawable.whatsapp_image_2025_03_22_at_19_09_39), contentDescription = "Imagen 1")
-    Log.i("Iniciando", "Iniciado Correctamente")
-
-    Image(painter = painterResource(id = R.drawable.whatsapp_image_2025_03_22_at_19_09_59), contentDescription = "Imagen 2")
-    Log.i("Iniciando", "Iniciado Correctamente")
-
-    Image(painter = painterResource(id = R.drawable.whatsapp_image_2025_03_22_at_19_14_28), contentDescription = "Imagen 3")
-    Log.i("Iniciando", "Iniciado Correctamente")
+    Image(painter = imagen, contentDescription = Nombre )
+    Log.d("Iniciando imagen: ", "Mostrando Imagen $Nombre")
 
 
 }
