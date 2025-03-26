@@ -38,18 +38,16 @@ class MainActivity : ComponentActivity() {
                         Imagenes(painterResource(R.drawable._2222),"Gato 2")
                         Imagenes(painterResource(R.drawable._333),"Gato 3")
 
+                        textos(
+                            modifier = Modifier.padding(innerPadding),
+                            Bienvenida = getString(R.string.Bienvenida),
+                            Explorando = getString(R.string.Explorando),
+                            Nombre = getString(R.string.Nombre,"Juan")
+                        )
                     }
                 }
             }
         }
-        val Bienvenida = getString(R.string.Bienvenida)
-        val Explorando = getString(R.string.Explorando)
-        val Nombre = getString(R.string.Nombre,"Juan")
-
-        Log.i("Prueba Bienvenida", "Mensaje 1 : $Bienvenida")
-        Log.i("Prueba explorando", "Mensaje 2: $Explorando")
-        Log.i("Prueba Nombre", "Mensaje 3 : $Nombre")
-
     }
 }
 
@@ -70,9 +68,26 @@ fun Imagenes(imagen: androidx.compose.ui.graphics.painter.Painter, Nombre: Strin
 {
     Image(painter = imagen, contentDescription = Nombre )
     Log.d("Iniciando imagen: ", "Mostrando Imagen $Nombre")
-
-
 }
+
+@OptIn(UnstableApi::class)
+@Composable
+fun textos(Bienvenida: String, Explorando: String, Nombre: String, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(text = Bienvenida)
+        Text(text = Explorando)
+        Text(text = "Nombre: $Nombre")
+
+    }
+
+    // Log de los textos que se están mostrando
+    Log.i("Prueba Bienvenida", "Mensaje 1 : $Bienvenida")
+    Log.i("Prueba explorando", "Mensaje 2: $Explorando")
+    Log.i("Prueba Nombre", "Mensaje 3 : $Nombre")
+}
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
