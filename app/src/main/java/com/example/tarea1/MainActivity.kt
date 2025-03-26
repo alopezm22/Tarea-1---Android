@@ -77,17 +77,11 @@ fun textos(Bienvenida: String, Explorando: String, Nombre: String, modifier: Mod
         Text(text = Bienvenida)
         Text(text = Explorando)
         Text(text = "Nombre: $Nombre")
-
     }
-
-    // Log de los textos que se están mostrando
     Log.i("Prueba Bienvenida", "Mensaje 1 : $Bienvenida")
     Log.i("Prueba explorando", "Mensaje 2: $Explorando")
     Log.i("Prueba Nombre", "Mensaje 3 : $Nombre")
 }
-
-
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
